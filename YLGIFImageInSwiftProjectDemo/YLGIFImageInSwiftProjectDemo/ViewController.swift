@@ -9,16 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @lazy var imageView:YLImageView = YLImageView()
+    lazy var imageView:YLImageView = YLImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.imageView.frame = CGRectMake(10, 50, 300, 240)
+        self.imageView.frame = CGRect(x: 10, y: 50, width: 300, height: 240)
         self.view.addSubview(self.imageView)
-        let path = NSBundle.mainBundle().URLForResource("iwatch", withExtension: "gif")
-        let data = NSData(contentsOfURL: path)
-        self.imageView.image = YLGIFImage(data: data)
+        let path = Bundle.main.url(forResource: "iwatch", withExtension: "gif")
+        let data = try? Data(contentsOf: path!)
+        self.imageView.image = YLGIFImage(data: data!)
         //self.imageView.image = YLGIFImage(contentsOfFile: "iwatch")
     }
 
