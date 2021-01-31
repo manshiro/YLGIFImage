@@ -164,6 +164,10 @@ const NSTimeInterval kMaxTimeStep = 1; // note: To avoid spiral-o-death
 
 - (void)displayLayer:(CALayer *)layer
 {
+    if (@available(iOS 14.0, *))
+    {
+        [super displayLayer:layer];
+    }
     if (!self.animatedImage || [self.animatedImage.images count] == 0) {
         return;
     }
