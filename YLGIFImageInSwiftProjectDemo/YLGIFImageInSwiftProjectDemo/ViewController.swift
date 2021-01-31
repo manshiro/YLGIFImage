@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         self.imageView.frame = CGRect(x: 10, y: 50, width: 300, height: 240)
         self.view.addSubview(self.imageView)
         let path = Bundle.main.url(forResource: "iwatch", withExtension: "gif")
+        //let path = Bundle.main.url(forResource: "ss", withExtension: "png")
         let data = try? Data(contentsOf: path!)
         self.imageView.image = YLGIFImage(data: data!)
         //self.imageView.image = YLGIFImage(contentsOfFile: "iwatch")
